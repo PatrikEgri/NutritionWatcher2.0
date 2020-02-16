@@ -1,0 +1,19 @@
+﻿@model NutritionWatcher2._0.Models.EditPhoneNumberViewModel
+
+@{
+    ViewBag.Title = "Telefonszám szerkesztése";
+}
+
+<div class="container">
+    <h2>Telefonszám szerkesztése</h2>
+    @using (Html.BeginForm("EditPhoneNumber", "Account", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.PhoneNumber)
+            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.PhoneNumber)
+        </div>
+        @Html.AntiForgeryToken()
+        <input class="btn btn-success form-control" name="submit" type="submit" value="Módosítás" />
+    }
+</div>

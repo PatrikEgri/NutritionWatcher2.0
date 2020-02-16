@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Fogyasztások";
+}
+<div class="container-md" style="color: white;">
+    <h2>Fogyasztások</h2>
+    <div class="table-responsive">
+        <table id="tablazat" class="table table-dark table-striped table-hover" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th scope="col">Dátum</th>
+                    <th scope="col">Idő</th>
+                    <th scope="col">Hozzárendelések</th>
+                    <th scope="col">Szerkesztés</th>
+                    <th scope="col">Törlés</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/consumptionIndex.js"></script>
+}

@@ -1,0 +1,44 @@
+﻿@model NutritionWatcher2._0.Models.FoodModel
+
+@{
+    ViewBag.Title = "Új étel létrehozása";
+}
+
+<div class="container">
+    <h2>Új étel létrehozása</h2>
+    @using (Html.BeginForm("NewFood", "Food", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.ProteinAmount)
+            @Html.TextBoxFor(x => x.ProteinAmount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.ProteinAmount)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.FatAmount)
+            @Html.TextBoxFor(x => x.FatAmount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.FatAmount)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.HydrocarbonateAmount)
+            @Html.TextBoxFor(x => x.HydrocarbonateAmount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.HydrocarbonateAmount)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Gramm)
+            @Html.TextBoxFor(x => x.Gramm, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Gramm)
+        </div>
+
+        @Html.AntiForgeryToken()
+        <input name="submit" type="submit" class="btn btn-success form-control" value="Létrehozás"/>
+    }
+</div>

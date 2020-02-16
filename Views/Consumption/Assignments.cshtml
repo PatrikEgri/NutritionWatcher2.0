@@ -1,0 +1,42 @@
+﻿@using NutritionWatcher2._0.Models
+@model AssignmentsViewModel
+
+@{
+    var c = Model.Consumption;
+    ViewBag.Title = $"{c.Date} {c.Time} fogyasztási adatai";
+}
+<div class="container-md">
+    <h2>@c.Date @c.Time fogyasztási adatai</h2>
+    <div class="table-responsive">
+        <table id="tablazat" class="table table-dark table-striped" style="width:100%;">
+            <thead>
+                <tr>
+                    <th scope="col">Név</th>
+                    <th scope="col">Fogyasztott tömeg</th>
+                    <th scope="col">Fogyasztott fehérje</th>
+                    <th scope="col">Fogyasztott zsír</th>
+                    <th scope="col">Fogyasztott szénhidrát</th>
+                    <th scope="col">Hozzárendelés törlése</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Assignments)
+                {
+                    <tr>
+                        <td scope="row">@item.Food.Name</td>
+                        <td>@item.ConsumedGramm gr.</td>
+                        <td>@(item.Food.ProteinAmount / item.Food.Gramm * item.ConsumedGramm) gr.</td>
+                        <td>@(item.Food.FatAmount / item.Food.Gramm * item.ConsumedGramm) gr.</td>
+                        <td>@(item.Food.HydrocarbonateAmount / item.Food.Gramm * item.ConsumedGramm) gr.</td>
+                        <td><i class="far fa-trash-alt js-torles" data-assignment-id=@item.Id></i></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/consumptionAssignments.js"></script>
+}

@@ -1,0 +1,101 @@
+﻿body {
+    padding-bottom: 20px;
+    background-color: #222;
+    /*color: white;*/
+}
+
+h2 {
+    margin-bottom: 30px;
+    margin-top: 50px;
+    color: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.nav-bg-gradient {
+    background: linear-gradient(to right, #113, #228);
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.input-validation-error {
+    border: 2px solid red;
+}
+
+.tabContainer {
+    width: 100%;
+    height: auto;
+}
+
+.tabContainer .buttonContainer {
+    height: 50px;
+}
+
+.tabContainer .buttonContainer button {
+    width: 33.3%;
+    height: 100%;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #353535;
+    color: white;
+}
+
+.tabContainer .buttonContainer button:hover {
+    background-color: #303030;
+}
+
+.tabContainer .tabPanel {
+    height: auto;
+    box-sizing: border-box;
+    display: none;
+    background-color: #181818;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: white;
+}
+
+.my-flex {
+    display: flex;
+    align-content: center;
+}
+
+.far.fa-trash-alt {
+    color: orangered;
+    cursor: pointer;
+}
+
+.far.fa-trash-alt:hover {
+    color: red;
+}
+
+.fas.fa-plus {
+    color: lightgreen;
+    cursor: pointer;
+}
+
+.fas.fa-plus:hover {
+    color: green;
+}

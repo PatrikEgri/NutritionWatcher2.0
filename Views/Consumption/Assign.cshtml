@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NutritionWatcher2._0.Models.ConsumptionModel>
+
+@{
+    ViewBag.Title = "Ételek fogyasztáshoz rendelése";
+}
+<div class="container-md" style="color: white;">
+    <h2>Ételek fogyasztáshoz rendelése</h2>
+    <div class="form-group">
+        <label for="lista">Válasszon ki egy fogyasztást</label>
+        <select class="form-control" id="lista" name="lista">
+            @foreach (var x in Model)
+            {
+                <option value="@x.Id">@x.Date @x.Time</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Hány grammot fogyasztott az ételből?</label>
+        <input type="number" name="gramm" id="gramm" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <div class="table-responsive">
+            <table id="tablazat" class="table table-dark table-striped table-hover" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Név</th>
+                        <th>Fehérje tartalom</th>
+                        <th>Zsír tartalom</th>
+                        <th>Szénhidrát tartalom</th>
+                        <th>Tömeg</th>
+                        <th>Fogyasztáshoz rendelés</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/consumptionAssign.js"></script>
+}
+

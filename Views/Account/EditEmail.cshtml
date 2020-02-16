@@ -1,0 +1,19 @@
+﻿@model NutritionWatcher2._0.Models.EditEmailViewModel
+
+@{
+    ViewBag.Title = "E-Mail cím szerkesztése";
+}
+
+<div class="container">
+    <h2>E-Mail cím szerkesztése</h2>
+    @using (Html.BeginForm("EditEmail", "Account", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email, new { @class="form-control" })
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+        @Html.AntiForgeryToken()
+        <input class="btn btn-success form-control" name="submit" type="submit" value="Módosítás"/>
+    }
+</div>

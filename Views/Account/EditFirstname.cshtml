@@ -1,0 +1,19 @@
+﻿@model NutritionWatcher2._0.Models.EditFirstnameViewModel
+
+@{
+    ViewBag.Title = "Keresztnév szerkesztése";
+}
+
+<div class="container">
+    <h2>Keresztnév szerkesztése</h2>
+    @using (Html.BeginForm("EditFirstname", "Account", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Firstname)
+            @Html.TextBoxFor(x => x.Firstname, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Firstname)
+        </div>
+        @Html.AntiForgeryToken()
+        <input class="btn btn-success form-control" name="submit" type="submit" value="Módosítás" />
+    }
+</div>

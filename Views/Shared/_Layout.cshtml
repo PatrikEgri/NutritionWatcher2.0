@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark nav-bg-gradient">
+        <a class="navbar-brand" href="#">NutritionWatcher</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    @Html.ActionLink("Saját adatok", "Data", "Account", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ételek
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/Food/NewFood">Új étel</a>
+                        <a class="dropdown-item" href="/Food/ViewFoods">Ételek megtekintése</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Fogyasztások
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/Consumption/NewConsumption">Új fogyasztás</a>
+                        <a class="dropdown-item" href="/Consumption">Fogyasztások megtekintése</a>
+                        <a class="dropdown-item" href="/Consumption/Assign">Ételhozzárendelés fogyasztásokhoz</a>
+                    </div>
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+
+    </nav>
+    <div class="container-md body-content" style="color: white;">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/lib")
+    @RenderSection("scripts", required: false)
+    <script src="https://kit.fontawesome.com/d583162cff.js" crossorigin="anonymous"></script>
+</body>
+</html>
+

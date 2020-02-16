@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Ételek";
+}
+
+<div class="container-md">
+    <h2>Ételek</h2>
+
+    <div class="tabContainer">
+        <div class="buttonContainer">
+            <button onclick="showPanel(0)">Alap ételek</button>
+            <button onclick="showPanel(1)">Saját ételek</button>
+            <button onclick="showPanel(2)">Mások ételei</button>
+        </div>
+        <!--  Alap ételek  -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table id="tablazat" class="table table-dark table-hover" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Étel neve</th>
+                            <th>Fehérjetartalom</th>
+                            <th>Zsírtartalom</th>
+                            <th>Szénhidráttartalom</th>
+                            <th>Tömeg</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <!--  Saját ételek  -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table id="tablazat2" class="table table-dark table-hover" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Étel neve</th>
+                            <th>Fehérjetartalom</th>
+                            <th>Zsírtartalom</th>
+                            <th>Szénhidráttartalom</th>
+                            <th>Tömeg</th>
+                            <th>Módosítás</th>
+                            <th>Törlés</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <!--  Mások ételei  -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table id="tablazat3" class="table table-dark table-hover" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Étel neve</th>
+                            <th>Fehérjetartalom</th>
+                            <th>Zsírtartalom</th>
+                            <th>Szénhidráttartalom</th>
+                            <th>Tömeg</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/memberViewFoods.js"></script>
+}
