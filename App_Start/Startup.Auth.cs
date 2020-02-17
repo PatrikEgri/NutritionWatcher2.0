@@ -54,15 +54,15 @@ namespace NutritionWatcher2._0
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "487677052186680",
+               appSecret: "b5d688a2d2063dcd18569a00ad4ef4b6");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "715848626530-avemu4d14cmcvhfte5mntciv1huutmju.apps.googleusercontent.com",
+                ClientSecret = "IQzWgmAA6dA7LOkDB5i1UuMy"
+            });
         }
     }
 }

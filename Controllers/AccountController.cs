@@ -181,7 +181,7 @@ namespace NutritionWatcher2._0.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ReturnUrl = "/Account/Data";
             return View();
         }
 
@@ -504,7 +504,8 @@ namespace NutritionWatcher2._0.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
+                        //return RedirectToLocal(returnUrl);
+                        return RedirectToAction("Data", "Account");
                     }
                 }
                 AddErrors(result);
@@ -521,7 +522,7 @@ namespace NutritionWatcher2._0.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
