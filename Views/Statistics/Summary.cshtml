@@ -1,0 +1,128 @@
+﻿@model NutritionWatcher2._0.Models.StatisticViewModel
+
+@{
+    ViewBag.Title = "Összegzés";
+}
+
+<div class="container-md">
+    <h2>Összegzés</h2>
+    <div class="tabContainer">
+        <div class="buttonContainer">
+            <button onclick="showPanel(0)">Mai nap</button>
+            <button onclick="showPanel(1)">Az elmúlt hét</button>
+            <button onclick="showPanel(2)">Hónap</button>
+        </div>
+        <!-- Napi kalóriafogyasztás -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Adat</th>
+                            <th scope="col">Érték</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">Kalóriafogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisDay()).Sum(x => x.GetConsumedCalorie()) kcal</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Fehérjefogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisDay()).Sum(x => x.GetConsumedProtein()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Zsírfogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisDay()).Sum(x => x.GetConsumedFat()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Szénhidrátfogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisDay()).Sum(x => x.GetConsumedHydrocarbonate()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Étkezések száma</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisDay()).GroupBy(x => x.Consumption).Count() db</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Heti kalóriafogyasztás -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Adat</th>
+                            <th scope="col">Érték</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">Kalóriafogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsPastWeek()).Sum(x => x.GetConsumedCalorie()) kcal</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Fehérjefogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsPastWeek()).Sum(x => x.GetConsumedProtein()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Zsírfogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsPastWeek()).Sum(x => x.GetConsumedFat()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Szénhidrátfogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsPastWeek()).Sum(x => x.GetConsumedHydrocarbonate()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Étkezések száma</td>
+                            <td>@Model.Assignments.Where(x => x.IsPastWeek()).GroupBy(x => x.Consumption).Count() db</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Havi kalóriafogyasztás -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Adat</th>
+                            <th scope="col">Érték</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">Kalóriafogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisMonth()).Sum(x => x.GetConsumedCalorie()) kcal</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Fehérjefogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisMonth()).Sum(x => x.GetConsumedProtein()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Zsírfogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisMonth()).Sum(x => x.GetConsumedFat()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Szénhidrátfogyasztás</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisMonth()).Sum(x => x.GetConsumedHydrocarbonate()) gr.</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">Étkezések száma</td>
+                            <td>@Model.Assignments.Where(x => x.IsThisMonth()).GroupBy(x => x.Consumption).Count() db</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/statisticsTab.js"></script>
+}

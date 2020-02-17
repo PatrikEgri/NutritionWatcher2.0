@@ -50,4 +50,10 @@ namespace NutritionWatcher2._0.Models
         public ConsumptionModel Consumption { get; set; }
         public IEnumerable<AssignmentModel> Assignments { get; set; }
     }
+
+    public class StatisticViewModel
+    {
+        public IEnumerable<ConsumptionModel> Consumptions { get; set; }
+        public IEnumerable<AssignmentModel> Assignments { get; set; }
+    }
 }

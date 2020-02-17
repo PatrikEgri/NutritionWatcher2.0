@@ -579,6 +579,7 @@
     <Content Include="Scripts\src\utils\setAttributes.js" />
     <Content Include="Scripts\src\utils\setStyles.js" />
     <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\statisticsTab.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -643,10 +644,14 @@
     <Content Include="Views\Consumption\Index.cshtml" />
     <Content Include="Views\Consumption\Assign.cshtml" />
     <Content Include="Views\Consumption\Assignments.cshtml" />
+    <Content Include="Views\Statistics\CalorieConsumption.cshtml" />
+    <Content Include="Views\Statistics\ProteinConsumption.cshtml" />
+    <Content Include="Views\Statistics\FatConsumption.cshtml" />
+    <Content Include="Views\Statistics\HydrocarbonateConsumption.cshtml" />
+    <Content Include="Views\Statistics\MealCount.cshtml" />
+    <Content Include="Views\Statistics\Summary.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Statistics\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

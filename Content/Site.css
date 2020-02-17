@@ -99,3 +99,7 @@ textarea {
 .fas.fa-plus:hover {
     color: green;
 }
+
+table {
+    width: 100%;
+}

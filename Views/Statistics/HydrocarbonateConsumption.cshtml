@@ -1,0 +1,101 @@
+﻿@model NutritionWatcher2._0.Models.StatisticViewModel
+
+@{
+    ViewBag.Title = "Szénhidrátfogyasztás";
+}
+
+<div class="container-md">
+    <h2>Szénhidrátfogyasztás</h2>
+    <div class="tabContainer">
+        <div class="buttonContainer">
+            <button onclick="showPanel(0)">Mai nap</button>
+            <button onclick="showPanel(1)">Az elmúlt hét</button>
+            <button onclick="showPanel(2)">Hónap</button>
+        </div>
+        <!-- Napi kalóriafogyasztás -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Étkezés</th>
+                            <th scope="col">Fogyasztott kalória</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Assignments.Where(x => x.IsThisDay()).GroupBy(x => x.Consumption.Date + " " + x.Consumption.Time))
+                        {
+                            <tr>
+                                <td scope="row">@item.Key</td>
+                                <td>@item.Sum(x => x.GetConsumedHydrocarbonate()) gr.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <h6>Összesen: @(Model.Assignments.Count() != 0 ? Model.Assignments.Where(x => x.IsThisDay()).Sum(x => x.GetConsumedHydrocarbonate()) : 0)</h6>
+                <h6>Étkezésenkénti átlag: @(Model.Assignments.Count() != 0 ? Model.Assignments.Where(x => x.IsThisDay()).GroupBy(x => x.Consumption.Date + " " + x.Consumption.Time).Average(x => x.Sum(y => y.GetConsumedHydrocarbonate())) : 0)</h6>
+            </div>
+        </div>
+
+        <!-- Heti kalóriafogyasztás -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Étkezés</th>
+                            <th scope="col">Fogyasztott kalória</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Assignments.Where(x => x.IsPastWeek()).GroupBy(x => x.Consumption.Date + " " + x.Consumption.Time))
+                        {
+                            <tr>
+                                <td scope="row">@item.Key</td>
+                                <td>@item.Sum(x => x.GetConsumedHydrocarbonate()) gr.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <h6>Összesen: @(Model.Assignments.Count() != 0 ? Model.Assignments.Where(x => x.IsPastWeek()).Sum(x => x.GetConsumedHydrocarbonate()) : 0)</h6>
+                <h6>Étkezésenkénti átlag: @(Model.Assignments.Count() != 0 ? Model.Assignments.Where(x => x.IsPastWeek()).GroupBy(x => x.Consumption.Date + " " + x.Consumption.Time).Average(x => x.Sum(y => y.GetConsumedHydrocarbonate())) : 0)</h6>
+            </div>
+        </div>
+
+        <!-- Havi kalóriafogyasztás -->
+        <div class="tabPanel">
+            <div class="table-responsive">
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Étkezés</th>
+                            <th scope="col">Fogyasztott kalória</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Assignments.Where(x => x.IsThisMonth()).GroupBy(x => x.Consumption.Date + " " + x.Consumption.Time))
+                        {
+                            <tr>
+                                <td scope="row">@item.Key</td>
+                                <td>@item.Sum(x => x.GetConsumedHydrocarbonate()) gr.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <h6>Összesen: @(Model.Assignments.Count() != 0 ? Model.Assignments.Where(x => x.IsThisMonth()).Sum(x => x.GetConsumedHydrocarbonate()) : 0)</h6>
+                <h6>Étkezésenkénti átlag: @(Model.Assignments.Count() != 0 ? Model.Assignments.Where(x => x.IsThisMonth()).GroupBy(x => x.Consumption.Date + " " + x.Consumption.Time).Average(x => x.Sum(y => y.GetConsumedHydrocarbonate())) : 0)</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/statisticsTab.js"></script>
+}
